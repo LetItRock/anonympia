@@ -1,5 +1,8 @@
 import { Echo } from '@novu/echo';
-import { renderReactEmail } from './emails/vercel';
+import {renderInvite} from './emails/invite';
+import {renderReminder} from "@/app/echo/emails/reminder";
+import {renderCommence} from "@/app/echo/emails/commence";
+import {renderDdos} from "@/app/echo/emails/ddos";
 
 export const echo = new Echo({
   apiKey: process.env.NOVU_API_KEY,
@@ -7,56 +10,114 @@ export const echo = new Echo({
 });
 
 echo.workflow(
-  'hello-world',
+  'PartyEvent',
   async ({ step }) => {
     await step.email(
-      'send-email',
+      'send-email-1',
       async (inputs) => {
         console.log('inputs', inputs);
         return {
           subject: 'This is an email subject',
-          body: renderReactEmail(inputs),
+          body: renderInvite(inputs),
         };
       },
-      {
-        inputSchema: {
-          type: 'object',
-          properties: {
-            showButton: { type: 'boolean', default: true },
-            username: { type: 'string', default: 'alanturing' },
-            userImage: {
-              type: 'string',
-              default:
-                'https://react-email-demo-bdj5iju9r-resend.vercel.app/static/vercel-user.png',
-              format: 'uri',
-            },
-            invitedByUsername: { type: 'string', default: 'Alan' },
-            invitedByEmail: {
-              type: 'string',
-              default: 'alan.turing@example.com',
-              format: 'email',
-            },
-            teamName: { type: 'string', default: 'Team Awesome' },
-            teamImage: {
-              type: 'string',
-              default:
-                'https://react-email-demo-bdj5iju9r-resend.vercel.app/static/vercel-team.png',
-              format: 'uri',
-            },
-            inviteLink: {
-              type: 'string',
-              default: 'https://vercel.com/teams/invite/foo',
-              format: 'uri',
-            },
-            inviteFromIp: { type: 'string', default: '204.13.186.218' },
-            inviteFromLocation: {
-              type: 'string',
-              default: 'São Paulo, Brazil',
+        {
+          inputSchema: {
+            type: 'object',
+            properties: {
+              firstName: { type: 'string', default: 'alan' },
+              lastName: { type: 'string', default: 'turing' },
             },
           },
-        },
-      }
+        }
     );
+
+    await step.delay("delay-1m-1",
+        async (inputs) => {
+          return {
+            // duration: 1,
+            amount: 1,
+            unit: "minutes",
+          }
+        },
+
+        );
+
+    await step.email(
+        'send-email-2',
+        async (inputs) => {
+          console.log('inputs', inputs);
+          return {
+            subject: 'This is an email subject',
+            body: renderReminder(inputs),
+          };
+        },
+        {
+          inputSchema: {
+            type: 'object',
+            properties: {
+              firstName: { type: 'string', default: 'alan' },
+              lastName: { type: 'string', default: 'turing' },
+            },
+          },
+        }
+    );
+
+    // await step.delay("delay-1m-2",
+    //     async (inputs) => {
+    //       return {
+    //         // duration: 1,
+    //         amount: 1,
+    //         unit: "minutes"
+    //       }
+    //     }
+    // );
+
+
+    await step.email(
+        'send-email-3',
+        async (inputs) => {
+          console.log('inputs', inputs);
+          return {
+            subject: 'This is an email subject',
+            body: renderCommence(inputs),
+          };
+        },
+        {
+          inputSchema: {
+            type: 'object',
+            properties: {
+              firstName: { type: 'string', default: 'alan' },
+              lastName: { type: 'string', default: 'turing' },
+            },
+          },
+        }
+    );
+
   },
   { payloadSchema: { type: 'object', properties: {} } }
 );
+
+echo.workflow("Novarian-DDOS", async ({ step }) => {
+      await step.email(
+          'send-email-3',
+          async (inputs) => {
+            console.log('inputs', inputs);
+            return {
+              subject: 'Vinotifica Shall Not Send Stale Wine',
+              body: renderDdos(inputs),
+            };
+          },
+          {
+            inputSchema: {
+              type: 'object',
+              properties: {
+                firstName: { type: 'string', default: 'alan' },
+                lastName: { type: 'string', default: 'turing' },
+              },
+            },
+          }
+      );
+    } ,
+    { payloadSchema: { type: 'object', properties: {} } }
+    )
