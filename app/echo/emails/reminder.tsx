@@ -38,7 +38,7 @@ export const Reminder = ({
    firstName,
    lastName
 }: any) => {
-  const previewText = `Reminder For The Event`;
+  const previewText = `Reminder For THE EVENT`;
 
   return (
       <Html>

@@ -38,7 +38,7 @@ export const Invite = ({
   firstName,
   lastName
 }: any) => {
-  const previewText = `Update On The Wine`;
+  const previewText = `We have the fluffish of crossonts, but no wine to enjoy them with`;
 
   const videoLink = "https://www.youtube.com/watch?v=3BydWohNNkU"
 

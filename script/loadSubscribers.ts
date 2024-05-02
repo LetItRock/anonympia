@@ -28,6 +28,8 @@ const subscribers = [
     { subscriberId: 'subscriber-21', firstName: "Tamar", lastName: "Amoza", email: "tamar@novu.co" },
     { subscriberId: 'subscriber-22', firstName: "Biswajeet", lastName: "Das", email: "biswa@novu.co" },
     { subscriberId: 'subscriber-23', firstName: "Kevin", lastName: "Damaso", email: "kevin@novu.co" },
+    { subscriberId: 'subscriber-24', firstName: "Denis", lastName: "Kralj", email: "denis@novu.co" },
+    { subscriberId: 'subscriber-25', firstName: "Adam", lastName: "Chmara", email: "adam@novu.co" }
 ];
 
 // Function to create subscribers in bulk

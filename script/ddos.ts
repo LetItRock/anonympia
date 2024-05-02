@@ -8,9 +8,9 @@ const WORKFLOW_TRIGGER_IDENTIFIER = 'Novarian-DDOS';
 
 // Define the subscribers
 const subscribers = [
-    { subscriberId: 'dima', email: 'dima@novu.co' },
-    { subscriberId: 'justin', email: 'nevo@novu.co' },
-    { subscriberId: 'gali', email: 'gali@novu.co' },
+    { subscriberId: 'subscriber-2' },
+    { subscriberId: 'subscriber-9' },
+    { subscriberId: 'subscriber-6' },
 ];
 
 async function triggerWorkflow() {

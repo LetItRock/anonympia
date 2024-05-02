@@ -11,14 +11,16 @@ export const echo = new Echo({
 
 echo.workflow(
   'PartyEvent',
-  async ({ step }) => {
+  async ({ step, subscriber }) => {
     await step.email(
       'send-email-1',
       async (inputs) => {
-        console.log('inputs', inputs);
         return {
-          subject: 'This is an email subject',
-          body: renderInvite(inputs),
+          subject: 'We have the fluffish of crossonts, but no wine to enjoy them with',
+          body: renderInvite({
+              firstName: subscriber.firstName,
+              lastName: subscriber.lastName
+          }),
         };
       },
         {
@@ -35,21 +37,21 @@ echo.workflow(
     await step.delay("delay-1m-1",
         async (inputs) => {
           return {
-            // duration: 1,
             amount: 1,
             unit: "minutes",
           }
         },
-
-        );
+    );
 
     await step.email(
         'send-email-2',
         async (inputs) => {
-          console.log('inputs', inputs);
           return {
-            subject: 'This is an email subject',
-            body: renderReminder(inputs),
+            subject: 'Reminder For THE EVENT',
+            body: renderReminder({
+                firstName: subscriber.firstName,
+                lastName: subscriber.lastName
+            }),
           };
         },
         {
@@ -63,24 +65,26 @@ echo.workflow(
         }
     );
 
-    // await step.delay("delay-1m-2",
-    //     async (inputs) => {
-    //       return {
-    //         // duration: 1,
-    //         amount: 1,
-    //         unit: "minutes"
-    //       }
-    //     }
-    // );
+      await step.delay("delay-1m-2",
+          async (inputs) => {
+              return {
+                  amount: 1,
+                  unit: "minutes",
+              }
+          },
+
+      );
 
 
     await step.email(
         'send-email-3',
         async (inputs) => {
-          console.log('inputs', inputs);
           return {
-            subject: 'This is an email subject',
-            body: renderCommence(inputs),
+            subject: 'It is Time',
+            body: renderCommence({
+                firstName: subscriber.firstName,
+                lastName: subscriber.lastName
+            }),
           };
         },
         {
@@ -98,25 +102,19 @@ echo.workflow(
   { payloadSchema: { type: 'object', properties: {} } }
 );
 
-echo.workflow("Novarian-DDOS", async ({ step }) => {
+echo.workflow("Novarian-DDOS", async ({ step, subscriber }) => {
       await step.email(
-          'send-email-3',
+          'send-ddos-email',
           async (inputs) => {
             console.log('inputs', inputs);
             return {
               subject: 'Vinotifica Shall Not Send Stale Wine',
-              body: renderDdos(inputs),
+              body: renderDdos({
+                  firstName: subscriber.firstName,
+                  lastName: subscriber.lastName
+              }),
             };
           },
-          {
-            inputSchema: {
-              type: 'object',
-              properties: {
-                firstName: { type: 'string', default: 'alan' },
-                lastName: { type: 'string', default: 'turing' },
-              },
-            },
-          }
       );
     } ,
     { payloadSchema: { type: 'object', properties: {} } }
