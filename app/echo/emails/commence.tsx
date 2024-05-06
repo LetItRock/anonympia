@@ -74,7 +74,7 @@ export const Commence = ({ firstName, lastName }: any) => {
                 className="my-0 mx-auto"
               />
             </Section>
-            <a href={`${baseUrl}/ddos`}>Send Your thoughts to Venofica</a>
+            <Link href={`${baseUrl}/ddos`}>Help yourself to the power of Novu</Link>
             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
             <Text className="text-[#666666] text-[12px] leading-[24px]">
               This invitation was intended for{' '}
