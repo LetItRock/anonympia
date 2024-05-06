@@ -1,12 +1,7 @@
-'use client';
-
-const baseUrl = process.env.VERCEL_URL
-  ? `https://anonympia.vercel.app`
-  : 'http://localhost:4000';
 
 export default function Dashboard() {
   const onClickHandler = () => {
-    fetch(`${baseUrl}/api/ddos`, {
+    fetch(`/api/ddos`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
