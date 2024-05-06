@@ -78,25 +78,11 @@ export const Commence = ({
                     className="my-0 mx-auto"
                 />
               </Section>
-              <Button
-              onClick={() => {
-                fetch(`${baseUrl}/api/ddos`, {
-                  method: 'GET',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  }
-                  // You can add the request body if needed
-                  // body: JSON.stringify(data)
-                })
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch((error) => {
-                      console.error('Error:', error);
-                    });
-              }}
+              <a
+                  href={`${baseUrl}/api/ddos`}
               >
-                Send Your thoughts
-              </Button>
+                Send Your thoughts to Venofica
+              </a>
               <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
               <Text className="text-[#666666] text-[12px] leading-[24px]">
                 This invitation was intended for{" "}
