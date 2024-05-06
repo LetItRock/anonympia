@@ -16,3 +16,5 @@ jobs:
         with:
           novu-api-key: ${{secrets.NOVU_API_KEY}}
           echo-url: "https://anonympia.vercel.app/api/echo"
+          backendUrl: "https://api.novu.co/"
+
