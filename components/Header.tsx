@@ -1,7 +1,5 @@
 'use client';
 
-import { NotificationCenter } from '@/components/NotificationCenter';
-import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { usePathname } from 'next/navigation';
 
 export const Header = () => {
@@ -49,33 +47,6 @@ export const Header = () => {
             </svg>
           </button>
         </div>
-        <SignedOut>
-          <div className="hidden lg:flex lg:gap-x-12">
-            <a
-              href="#"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              About
-            </a>
-          </div>
-        </SignedOut>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <span className="text-sm font-semibold leading-6 text-gray-900 cursor-pointer">
-            <SignedOut>
-              <SignInButton>
-                <span>
-                  Log in <span aria-hidden="true">&rarr;</span>
-                </span>
-              </SignInButton>
-            </SignedOut>
-            <SignedIn>
-              <div className="flex justify-center gap-2">
-                <NotificationCenter />
-                <UserButton />
-              </div>
-            </SignedIn>
-          </span>
-        </div>
       </nav>
       <div className="lg:hidden" role="dialog" aria-modal="true">
         <div className="fixed inset-0 z-10"></div>
@@ -109,33 +80,6 @@ export const Header = () => {
                 />
               </svg>
             </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <SignedOut>
-                <div className="space-y-2 py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    About
-                  </a>
-                </div>
-              </SignedOut>
-              <div className="py-6">
-                <span className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer">
-                  <SignedOut>
-                    <SignInButton>Log in</SignInButton>
-                  </SignedOut>
-                  <SignedIn>
-                    <div className="flex justify-center gap-2">
-                      <NotificationCenter />
-                      <UserButton />
-                    </div>
-                  </SignedIn>
-                </span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
