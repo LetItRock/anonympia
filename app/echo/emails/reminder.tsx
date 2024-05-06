@@ -31,8 +31,8 @@ interface VercelInviteUserEmailProps {
 }
 
 const baseUrl = process.env.VERCEL_URL
-  ? `https://react-email-demo-bdj5iju9r-resend.vercel.app`
-  : "http://localhost:3000";
+  ? `https://anonympia.vercel.app`
+  : "http://localhost:4000";
 
 export const Reminder = ({
    firstName,

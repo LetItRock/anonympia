@@ -24,14 +24,14 @@ interface VercelInviteUserEmailProps {
 }
 
 const baseUrl = process.env.VERCEL_URL
-  ? `https://react-email-demo-bdj5iju9r-resend.vercel.app`
-  : "http://localhost:3000";
+  ? `https://anonympia.vercel.app`
+  : "http://localhost:4000";
 
 export const DDOS = ({
   firstName,
   lastName
 }: any) => {
-  const previewText = `Shall not send stale wine`;
+  const previewText = `You shall not send stale wine!`;
 
   return (
     <Html>
@@ -51,7 +51,7 @@ export const DDOS = ({
               />
             </Section>
             <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
-               You shall not send stale wine.
+               You shall not send stale wine!
             </Heading>
             <Section className="flex flex-row " >
               <Text className="text-black text-[14px] leading-[24px]">

@@ -17,7 +17,7 @@ const getRandomDelay = () => -(Math.random() * 0.7 + 0.05);
 const randomDuration = () => Math.random() * 0.07 + 0.23;
 
 const variants = {
-    start: (i) => ({
+    start: (i: number) => ({
         rotate: i % 2 === 0 ? [-1, 1.3, 0] : [1, -1.4, 0],
         transition: {
             delay: getRandomDelay(),
@@ -34,6 +34,7 @@ const variants = {
 export default function Dashboard() {
     const [campaignSent, setCampaignSent] = useState(false);
     const [showText, setShowText] = useState(false);
+    const [sent, setSent] = useState(false);
     const [bombDropped, setBombDropped] = useState(false);
 
     const handleButtonClick = () => {
@@ -42,6 +43,24 @@ export default function Dashboard() {
         setTimeout(() => {
             setCampaignSent(true);
         }, 2000); // Adjust the time according to your animation duration
+
+        if (!sent) {
+            console.log("Sending Request")
+            fetch('/api/event', {
+                method: 'GET', // or 'GET'
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+                // You can add the request body if needed
+                // body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            setSent(true);
+        }
     };
 
     const control = useAnimation()
@@ -68,9 +87,6 @@ export default function Dashboard() {
                     initial={{ y: 0, scale: 1.1, rotate: -10 }}
                     animate={control}
                     variants={variants}
-                    style={{
-                        ...getRandomTransformOrigin(),
-                    }}
                     transition={{
                         repeat: Infinity,
                         repeatType: "reverse",

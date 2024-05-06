@@ -31,8 +31,8 @@ interface VercelInviteUserEmailProps {
 }
 
 const baseUrl = process.env.VERCEL_URL
-  ? `https://react-email-demo-bdj5iju9r-resend.vercel.app`
-  : "http://localhost:3000";
+  ? `https://anonympia.vercel.app`
+  : "http://localhost:4000";
 
 export const Commence = ({
    firstName,
@@ -78,6 +78,25 @@ export const Commence = ({
                     className="my-0 mx-auto"
                 />
               </Section>
+              <Button
+              onClick={() => {
+                fetch(`${baseUrl}/api/ddos`, {
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  }
+                  // You can add the request body if needed
+                  // body: JSON.stringify(data)
+                })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch((error) => {
+                      console.error('Error:', error);
+                    });
+              }}
+              >
+                Send Your thoughts
+              </Button>
               <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
               <Text className="text-[#666666] text-[12px] leading-[24px]">
                 This invitation was intended for{" "}
