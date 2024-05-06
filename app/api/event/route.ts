@@ -14,6 +14,11 @@ export async function GET() {
         //     payload: { },
         // });
 
+        await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
+            to: { subscriberId: 'subscriber-17' },
+            payload: { },
+        });
+
         return new Response(
             JSON.stringify({ message: "Success",  }),
             {
