@@ -16,7 +16,7 @@ echo.workflow(
       'send-email-1',
       async (inputs) => {
         return {
-          subject: 'We have the fluffish of crossonts, but no wine to enjoy them with',
+          subject: 'We have the fluffist of crossonts, but no wine to enjoy them with',
           body: renderInvite({
               firstName: subscriber.firstName,
               lastName: subscriber.lastName

@@ -1,19 +1,21 @@
+// @ts-ignore
 const { Novu } = require('@novu/node');
 
-// Initialize Novu client with your API key
-const novu = new Novu('YOUR_API_KEY');
+async function triggerDDos() {
 
-// Define the workflow trigger identifier
-const WORKFLOW_TRIGGER_IDENTIFIER = 'Novarian-DDOS';
+    // Initialize Novu client with your API key
+    const novu = new Novu('YOUR_API_KEY');
 
-// Define the subscribers
-const subscribers = [
-    { subscriberId: 'dima', email: 'dima@novu.co' },
-    { subscriberId: 'justin', email: 'nevo@novu.co' },
-    { subscriberId: 'gali', email: 'gali@novu.co' },
-];
+    // Define the workflow trigger identifier
+    const WORKFLOW_TRIGGER_IDENTIFIER = 'Novarian-DDOS';
 
-async function triggerWorkflow() {
+    // Define the subscribers
+    const subscribers = [
+        { subscriberId: 'dima', email: 'dima@novu.co' },
+        { subscriberId: 'justin', email: 'nevo@novu.co' },
+        { subscriberId: 'gali', email: 'gali@novu.co' },
+    ];
+
     try {
 
     await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
@@ -26,7 +28,7 @@ async function triggerWorkflow() {
 
 
     } catch (error) {
-        console.error("Error triggering workflow:", error.message);
+        console.error("Error triggering workflow:", error);
     }
 }
 

@@ -1,30 +1,17 @@
-import { Novu } from '@novu/node';
+import {Novu, TriggerRecipientsTypeEnum} from '@novu/node';
 
 // Initialize Novu with your API key
 const novu = new Novu(process.env.NOVU_API_KEY ?? "");
 
 export async function GET() {
 
-    const WORKFLOW_TRIGGER_IDENTIFIER = "Novarian-DDOS"
-
-    const subscribers = [
-        // { subscriberId: 'subscriber-2' },
-        // { subscriberId: 'subscriber-9' },
-        // { subscriberId: 'subscriber-6' },
-        { subscriberId: 'subscriber-17' }
-    ];
+    const WORKFLOW_TRIGGER_IDENTIFIER = "PartyEvent"
 
     try {
-
-        for (const value of subscribers) {
-
-            await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
-                to: { subscriberId: value.subscriberId },
-                payload: { },
-            });
-
-        }
-
+        await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
+            to: [{ type: TriggerRecipientsTypeEnum.TOPIC, topicKey: 'all-subscribers' }],
+            payload: { },
+        });
 
         return new Response(
             JSON.stringify({ message: "Success",  }),
@@ -35,7 +22,9 @@ export async function GET() {
                 }
             }
         );
+
     } catch (error) {
+
         console.error('Error triggering Novu event:', error);
         return new Response(
             JSON.stringify({ message: "Internal Server Error", error: error }),

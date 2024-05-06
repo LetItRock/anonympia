@@ -1,9 +1,12 @@
+// @ts-ignore
 const { Novu } = require('@novu/node');
 
 // Initialize the Novu client with your API key
+// @ts-ignore
 const novu = new Novu('YOUR_API_KEY'); //
 
 // Convert the provided data into the required structure
+// @ts-ignore
 const subscribers = [
     { subscriberId: 'subscriber-1', firstName: "Aliaksandr", lastName: "Ryzhou", email: "aliaksandr@novu.co" },
     { subscriberId: 'subscriber-2', firstName: "Dima", lastName: "Grossman", email: "dima@novu.co" },
@@ -34,11 +37,23 @@ const subscribers = [
 
 // Function to create subscribers in bulk
 async function createSubscribers() {
+    const topicKey = 'all-subscribers'
     try {
         await novu.subscribers.bulkCreate(subscribers);
+
+        const result = await novu.topics.create({
+            key: topicKey ,
+            name: 'All Subscribers',
+        });
+
+        const response = await novu.topics.addSubscribers(topicKey, {
+            subscribers: subscribers.map((value) => { return value.subscriberId})
+        });
+
         console.log("Subscribers added successfully!");
+
     } catch (error) {
-        console.error("Error adding subscribers:", error.message);
+        console.error("Error adding subscribers:", error);
     }
 }
 
