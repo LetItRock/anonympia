@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import pkg from '../package.json';
+import Image from "next/image";
 
 export const Header = () => {
   const path = usePathname();
@@ -19,11 +20,7 @@ export const Header = () => {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-            />
+            <p className={"text-black text-bold"}>Anonympia.gov</p>
           </a>
         </div>
         <p className={"text-gray-200"}>v{pkg.version}</p>
@@ -56,8 +53,9 @@ export const Header = () => {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
+              <Image
+                height={32}
+                width={32}
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 alt=""
               />

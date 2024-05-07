@@ -2,6 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import { motion, useAnimation } from 'framer-motion'
+import Image from "next/image";
 
 const getRandomTransformOrigin = () => {
     const value = (16 + 40 * Math.random()) / 100;
@@ -94,7 +95,7 @@ export default function Dashboard() {
                     }}
                     className="absolute top-0 transform transition-transform duration-500"
                 >
-                    <img src="/Bomb.png" alt="Bomb" className="h-20" />
+                    <Image src="/Bomb.png" alt="Bomb" height={80} width={80}/>
                 </motion.div>
             )}
             {/* Bomb */}
@@ -105,7 +106,7 @@ export default function Dashboard() {
                     transition={{duration: 1}}
                     className="absolute top-64 transform transition-transform duration-500"
                 >
-                    <img src="/Bomb.png" alt="Bomb" className="h-20"/>
+                    <Image src="/Bomb.png" alt="Bomb" height={80} width={80} />
                 </motion.div>
             )}
             {/* Explosion animation */}
@@ -117,7 +118,7 @@ export default function Dashboard() {
                     onAnimationComplete={() => setShowText(true)} // Set campaignSent to true after the explosion animation completes
                     className="absolute top-64 transform transition-transform duration-500"
                 >
-                    <img src="/Explosion.png" alt="Explosion" className="h-40"/>
+                    <Image src="/Explosion.png" alt="Explosion" height={40} width={40} />
                 </motion.div>
             )}
             {/* Text displaying after campaign is sent */}
