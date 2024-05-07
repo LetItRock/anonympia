@@ -4,15 +4,6 @@ import React, {useEffect, useState} from 'react';
 import { motion, useAnimation } from 'framer-motion'
 import Image from "next/image";
 
-const getRandomTransformOrigin = () => {
-    const value = (16 + 40 * Math.random()) / 100;
-    const value2 = (15 + 36 * Math.random()) / 100;
-    return {
-        originX: value,
-        originY: value2
-    };
-};
-
 const getRandomDelay = () => -(Math.random() * 0.7 + 0.05);
 
 const randomDuration = () => Math.random() * 0.07 + 0.23;
@@ -48,7 +39,7 @@ export default function Dashboard() {
         if (!sent) {
             console.log("Sending Request")
             fetch('/api/event', {
-                method: 'GET', // or 'GET'
+                method: 'POST', // or 'GET'
                 headers: {
                     'Content-Type': 'application/json',
                 }
@@ -118,7 +109,7 @@ export default function Dashboard() {
                     onAnimationComplete={() => setShowText(true)} // Set campaignSent to true after the explosion animation completes
                     className="absolute top-64 transform transition-transform duration-500"
                 >
-                    <Image src="/Explosion.png" alt="Explosion" height={40} width={40} />
+                    <Image src="/Explosion.png" alt="Explosion" height={160} width={160} />
                 </motion.div>
             )}
             {/* Text displaying after campaign is sent */}

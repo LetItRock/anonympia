@@ -3,9 +3,9 @@ import { Novu } from '@novu/node';
 // Initialize Novu with your API key
 const novu = new Novu(process.env.NOVU_API_KEY ?? "");
 
-export async function GET() {
+export async function POST() {
 
-    const WORKFLOW_TRIGGER_IDENTIFIER = "novarian-ddos-TunbVdo2IC"
+    const WORKFLOW_TRIGGER_IDENTIFIER = "novarian-ddos"
 
     const subscribers = [
         // { subscriberId: 'subscriber-2' },
