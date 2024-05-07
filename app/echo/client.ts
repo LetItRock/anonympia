@@ -12,26 +12,21 @@ export const echo = new Echo({
 echo.workflow(
   'PartyEvent',
   async ({ step, subscriber }) => {
+
     await step.email(
       'send-email-1',
       async (inputs) => {
         return {
           subject: 'We have the fluffiest of croissants, but no wine to enjoy them with',
           body: renderInvite({
-              firstName: subscriber.firstName,
-              lastName: subscriber.lastName
+              firstName: subscriber?.firstName ?? "Anonypian",
+              lastName: subscriber?.lastName ?? "Citizen"
           }),
 
         };
       },
         {
-          inputSchema: {
-            type: 'object',
-            properties: {
-              firstName: { type: 'string', default: 'alan' },
-              lastName: { type: 'string', default: 'turing' },
-            },
-          },
+          inputSchema: {},
         }
     );
 
@@ -50,19 +45,13 @@ echo.workflow(
           return {
             subject: 'Reminder For THE EVENT',
             body: renderReminder({
-                firstName: subscriber.firstName,
-                lastName: subscriber.lastName
+                firstName: subscriber?.firstName ?? "Anonypian" ,
+                lastName: subscriber?.lastName ?? "Citizen"
             }),
           };
         },
         {
-          inputSchema: {
-            type: 'object',
-            properties: {
-              firstName: { type: 'string', default: 'alan' },
-              lastName: { type: 'string', default: 'turing' },
-            },
-          },
+          inputSchema: {},
         }
     );
 
@@ -83,19 +72,13 @@ echo.workflow(
           return {
             subject: 'It is Time',
             body: renderCommence({
-                firstName: subscriber.firstName,
-                lastName: subscriber.lastName
+                firstName: subscriber?.firstName ?? "Anonypian",
+                lastName: subscriber?.lastName ?? "Citizen"
             }),
           };
         },
         {
-          inputSchema: {
-            type: 'object',
-            properties: {
-              firstName: { type: 'string', default: 'alan' },
-              lastName: { type: 'string', default: 'turing' },
-            },
-          },
+          inputSchema: {},
         }
     );
 
@@ -111,8 +94,8 @@ echo.workflow("Novarian-DDOS", async ({ step, subscriber }) => {
             return {
               subject: 'Vinotifica Shall Not Send Stale Wine',
               body: renderDdos({
-                  firstName: subscriber.firstName,
-                  lastName: subscriber.lastName
+                  firstName: subscriber.firstName ?? "firstName",
+                  lastName: subscriber.lastName ?? "lastName"
               }),
             };
           },
