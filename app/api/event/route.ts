@@ -5,7 +5,7 @@ const novu = new Novu(process.env.NOVU_API_KEY ?? "");
 
 export async function POST() {
 
-    const WORKFLOW_TRIGGER_IDENTIFIER = "partyevent-k-QvjSzJ1"
+    const WORKFLOW_TRIGGER_IDENTIFIER = "partyevent-k-qvjszj-xs4WRUy4z"
 
     try {
         console.log("StartEvent");
