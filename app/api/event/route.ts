@@ -5,7 +5,7 @@ const novu = new Novu(process.env.NOVU_API_KEY ?? "");
 
 export async function GET() {
 
-    const WORKFLOW_TRIGGER_IDENTIFIER = "PartyEvent"
+    const WORKFLOW_TRIGGER_IDENTIFIER = "partyevent-ljSkE3yts"
 
     try {
         console.log("StartEvent");
@@ -15,7 +15,9 @@ export async function GET() {
         // });
 
         await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
-            to: { subscriberId: 'subscriber-17' },
+            to: { subscriberId: 'subscriber-17',
+                email: "zac@novu.co"
+            },
             payload: { },
         });
 
