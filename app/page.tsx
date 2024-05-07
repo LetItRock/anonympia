@@ -10,11 +10,11 @@ const randomDuration = () => Math.random() * 0.07 + 0.23;
 
 const variants = {
     start: (i: number) => ({
-        rotate: i % 2 === 0 ? [-1, 1.3, 0] : [1, -1.4, 0],
+        rotate: [50, -50],
         transition: {
-            delay: getRandomDelay(),
             repeat: Infinity,
-            duration: randomDuration()
+            duration: 1,
+            ease: "linear"
         }
     }),
     reset: {
@@ -82,7 +82,7 @@ export default function Dashboard() {
                     transition={{
                         repeat: Infinity,
                         repeatType: "reverse",
-                        duration: .01
+                        duration: 1
                     }}
                     className="absolute top-0 transform transition-transform duration-500"
                 >

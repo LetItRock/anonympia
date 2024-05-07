@@ -10,7 +10,7 @@ export const echo = new Echo({
 });
 
 echo.workflow(
-  'PartyEvent',
+  'partyevent-k-QvjSzJ',
   async ({ step, subscriber }) => {
 
     await step.email(
@@ -86,7 +86,7 @@ echo.workflow(
   { payloadSchema: { type: 'object', properties: {} } }
 );
 
-echo.workflow("Novarian-DDOS", async ({ step, subscriber }) => {
+echo.workflow("novarian-ddos-mD546jWaeV1", async ({ step, subscriber }) => {
       await step.email(
           'send-ddos-email',
           async (inputs) => {

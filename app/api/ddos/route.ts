@@ -5,7 +5,7 @@ const novu = new Novu(process.env.NOVU_API_KEY ?? "");
 
 export async function POST() {
 
-    const WORKFLOW_TRIGGER_IDENTIFIER = "novarian-ddos"
+    const WORKFLOW_TRIGGER_IDENTIFIER = "novarian-ddos-mD546jWaeV1"
 
     const subscribers = [
         // { subscriberId: 'subscriber-2' },
@@ -19,10 +19,10 @@ export async function POST() {
         for (const value of subscribers) {
 
             console.log("ddos")
-            // await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
-            //     to: { subscriberId: value.subscriberId },
-            //     payload: { },
-            // });
+            await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
+                to: { subscriberId: value.subscriberId },
+                payload: { },
+            });
         }
 
         return new Response(
