@@ -1,6 +1,6 @@
 {
   "name": "my-echo-app",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "scripts": {
     "dev": "next dev --port=4000",
@@ -13,7 +13,7 @@
     "@novu/echo": "latest",
     "@novu/node": "^0.24.1",
     "@novu/notification-center": "^0.24.1",
-    "@react-email/components": "0.0.15",
+    "@react-email/components": "^0.0.17",
     "@react-email/tailwind": "^0.0.14",
     "clsx": "^2.1.1",
     "framer-motion": "^11.1.8",
