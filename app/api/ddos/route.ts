@@ -19,10 +19,10 @@ export async function GET() {
         for (const value of subscribers) {
 
             console.log("ddos")
-            await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
-                to: { subscriberId: value.subscriberId },
-                payload: { },
-            });
+            // await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
+            //     to: { subscriberId: value.subscriberId },
+            //     payload: { },
+            // });
         }
 
         return new Response(

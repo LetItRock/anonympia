@@ -14,12 +14,12 @@ export async function GET() {
         //     payload: { },
         // });
 
-        await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
-            to: { subscriberId: 'subscriber-17',
-                email: "zac@novu.co"
-            },
-            payload: { },
-        });
+        // await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
+        //     to: { subscriberId: 'subscriber-17',
+        //         email: "zac@novu.co"
+        //     },
+        //     payload: { },
+        // });
 
         return new Response(
             JSON.stringify({ message: "Success",  }),
