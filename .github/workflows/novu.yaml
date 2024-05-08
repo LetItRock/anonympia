@@ -1,7 +1,7 @@
 name: Deploy Echo State to Novu
 
 on:
-  push:
+#  push:
   workflow_dispatch:
 
 jobs:

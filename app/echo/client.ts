@@ -30,14 +30,14 @@ echo.workflow(
         }
     );
 
-    await step.delay("delay-1m-1",
-        async (inputs) => {
-          return {
-            amount: 1,
-            unit: "minutes",
-          }
-        },
-    );
+    // await step.delay("delay-1m-1",
+    //     async (inputs) => {
+    //       return {
+    //         amount: 1,
+    //         unit: "minutes",
+    //       }
+    //     },
+    // );
 
     await step.email(
         'send-email-2',
@@ -55,15 +55,15 @@ echo.workflow(
         }
     );
 
-      await step.delay("delay-1m-2",
-          async (inputs) => {
-              return {
-                  amount: 1,
-                  unit: "minutes",
-              }
-          },
-
-      );
+      // await step.delay("delay-1m-2",
+      //     async (inputs) => {
+      //         return {
+      //             amount: 1,
+      //             unit: "minutes",
+      //         }
+      //     },
+      //
+      // );
 
 
     await step.email(

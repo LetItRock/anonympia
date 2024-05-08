@@ -8,10 +8,10 @@ export async function POST() {
     const WORKFLOW_TRIGGER_IDENTIFIER = "novarian-ddos-md546jwaev1-MRSqBZQLx9"
 
     const subscribers = [
-        // { subscriberId: 'subscriber-2' },
-        // { subscriberId: 'subscriber-9' },
-        // { subscriberId: 'subscriber-6' },
-        { subscriberId: 'subscriber-17' }
+        { subscriberId: 'subscriber-2' },
+        { subscriberId: 'subscriber-9' },
+        { subscriberId: 'subscriber-6' },
+        // { subscriberId: 'subscriber-17' }
     ];
 
     try {
