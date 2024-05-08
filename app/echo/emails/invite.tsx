@@ -71,14 +71,11 @@ export const Invite = ({
               </Text>
             </Section>
             <Section className="flex flex-row ">
+              <Link href={"https://youtu.be/3BydWohNNkU"} >
+                <Img src={`${baseUrl}/sadKidsYT.png`} height={200} width={300}></Img>
+              </Link>
               <p>Your email client may not support video playback directly. If not, <a
                   href={videoLink}>click here</a> to watch the video.</p>
-              <video poster={`${baseUrl}/Bomb.png`} width="480" height="270" controls={true}>
-                <source src="https://www.youtube.com/embed/3BydWohNNkU" type="video/mp4"/>
-              </video>
-              {/*<iframe width="420" height="315"*/}
-              {/*        src="https://www.youtube.com/embed/3BydWohNNkU">*/}
-              {/*</iframe>*/}
             </Section>
             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full"/>
             <Text className="text-[#666666] text-[12px] leading-[24px]">
