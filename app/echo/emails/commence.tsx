@@ -74,7 +74,12 @@ export const Commence = ({ firstName, lastName }: any) => {
                 className="my-0 mx-auto"
               />
             </Section>
-            <Link key={"help yourself"} href={`${baseUrl}/event`}>Help yourself to the power of Novu</Link>
+            <Button
+                href={`${baseUrl}/event`}
+                className={"bg-blue mx-auto rounded-lg text-white mt-4"}
+            >
+              Help yourself to the power of Novu
+            </Button>
             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
             <Text className="text-[#666666] text-[12px] leading-[24px]">
               This invitation was intended for{' '}
