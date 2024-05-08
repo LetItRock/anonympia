@@ -79,7 +79,7 @@ export const Commence = ({ firstName, lastName }: any) => {
             <Text className="text-[#666666] text-[12px] leading-[24px]">
               This invitation was intended for{' '}
               <span className="text-black">
-                {firstName} {lastName}
+                EVERYONE
               </span>
               .
             </Text>
