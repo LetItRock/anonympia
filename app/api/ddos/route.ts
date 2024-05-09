@@ -20,7 +20,7 @@ export async function POST() {
 
             console.log("ddos")
             await novu.trigger(WORKFLOW_TRIGGER_IDENTIFIER, {
-                to: { subscriberId: value.subscriberId },
+                to: { subscriberId: value.subscriberId, email: value.email },
                 payload: { },
             });
         }
